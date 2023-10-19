@@ -34,29 +34,29 @@ export default function Headder() {
             </div>
             <div className="max-[650px] hidden md:flex md:p-0  ">
               <button
-                className="bg-white text-[#333] hover:bg-[#333] hover:text-[#fff] p-1 mr-2 rounded-md flex items-center outline-none"
+                className="bg-white text-[#333] hover:bg-[#333] hover:text-[#fff] p-1 mr-2 rounded-md flex items-center outline-none text-sm"
                 onClick={() => router.push("/")}
               >
             
                 หน้าหลัก
               </button>
               <button
-                className="bg-white text-[#333] hover:bg-[#333] hover:text-[#fff] p-1 mr-2 rounded-md flex items-center outline-none"
-                onClick={() => router.push("/shop")}
+                className="bg-white text-[#333] hover:bg-[#333] hover:text-[#fff] p-1 mr-2 rounded-md flex items-center outline-none text-sm"
+                onClick={() => router.push("/sdo")}
               >
               
               แจ้งปัญหา SDO
               </button>
               <button
-                className="bg-white text-[#333] hover:bg-[#333] hover:text-[#fff] p-1 mr-2 rounded-md flex items-center outline-none"
-                onClick={() => router.push("/login")}
+                className="bg-white text-[#333] hover:bg-[#333] hover:text-[#fff] p-1 mr-2 rounded-md flex items-center outline-none text-sm"
+                onClick={() => router.push("/pdcdc")}
               >
              
              แจ้งปัญหา PDC/DC
               </button>
               <button
-                className="bg-white text-[#333] hover:bg-[#333] hover:text-[#fff] p-1 mr-2 rounded-md flex items-center outline-none"
-                onClick={() => router.push("/signup")}
+                className="bg-white text-[#333] hover:bg-[#333] hover:text-[#fff] p-1 mr-2 rounded-md flex items-center outline-none text-sm"
+                onClick={() => router.push("/van")}
               >
 
               แจ้งปัญหา VANSEll
@@ -76,19 +76,19 @@ export default function Headder() {
           </button>
           <button
             className="mt-3 hover:text-[#06b6d4] flex items-center"
-            onClick={() => router.push("/shop")}
+            onClick={() => router.push("/sdo")}
           >
       แจ้งปัญหา SDO
           </button>
           <button
             className="mt-3 hover:text-[#06b6d4] flex items-center"
-            onClick={() => router.push("/login")}
+            onClick={() => router.push("/pdcdc")}
           >
                     แจ้งปัญหา PDC/DC
           </button>
           <button
             className="mt-3 hover:text-[#06b6d4] flex items-center"
-            onClick={() => router.push("/signup")}
+            onClick={() => router.push("/van")}
           >
          แจ้งปัญหา VANSEll
           </button>
