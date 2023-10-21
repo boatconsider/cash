@@ -8,7 +8,7 @@ export default function sdo() {
     <div className="h-full bg-slate-200  min[400px]:h-auto">
       <Headder />
       <div className="flex justify-center items-center mt-5">
-        <div className=" flex  items-center w-[650px] h-[600px] bg-white flex-col rounded-lg">
+        <div className=" flex  items-center w-[650px] h-[650px] bg-white flex-col rounded-lg">
           <div>
             <img src="1.png" alt="" width={150} height={100} />
           </div>
@@ -27,9 +27,9 @@ export default function sdo() {
           </div>
           <div className="flex flex-col items-center mt-[1rem] ">
             <h1>อัปโหลดรูปภาพ</h1>
-            <input type="file"  />
+            <button  type="file" className="bg-white border border-cyan-400   p-4 rounded-full">Upload</button>
           </div>
-        <button className='bg-white text-[#333] hover:bg-[#333] hover:text-[#fff] p-1 mr-2 rounded-md flex items-center outline-none text-sm'>ยืนยัน</button>
+        <button className='bg-cyan-400   text-[#fff] hover:bg-amber-400 hover:text-[#fff] p-2 mt-4 rounded-md flex items-center outline-none text-sm'>ยืนยัน</button>
         </div>
       </div>
       <Footer />
