@@ -9,6 +9,11 @@ import withReactContent from "sweetalert2-react-content";
 import { useRouter } from "next/router";
 
 export default function sdo() {
+  const [nameError, setNameError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [problemError, setProblemError] = useState('');
+  const [imgError, setImgError] = useState('');
+
   const router = useRouter();
   const MySwal = withReactContent(Swal);
   const [name, setName] = useState(""); 
@@ -17,25 +22,15 @@ export default function sdo() {
   const [img, setImg] = useState(""); 
 
   const handleSubmission = () => {
-    const formData = new FormData();
     if (!name || !password || !problem || !img) {
       alert('กรุณากรอกข้อมูลให้ครบถ้วน');
       return;
     }
-    formData.append('name', name);
-    formData.append('passwordsell', password);
-    formData.append('problem', problem);
-
-    // Check if an image is selected before adding it to FormData
-    if (img) {
-        const imgFile = new Blob([img], { type: 'image/jpeg' }); // Adjust the file type according to the image you are using
-        formData.append('img', imgFile, 'uploaded.jpg'); // Change the file name as appropriate
-    }
-
-    axios.post('https://node-api-u9ix.onrender.com/rsmvan', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
+    axios.post('https://node-api-u9ix.onrender.com/rsmsdo', {
+      name: name,
+      passwordsell: password,
+      problem: problem,
+      img: img
     })
     .then((response) => {
       const result = response.data;

@@ -58,8 +58,8 @@ export default function Home() {
   </div>
   <div class="bg-white rounded-lg p-4 w-[300px] h-[300px]">
   <div className="flex justify-center items-center flex-col">
-    <img src="4.png" alt=""  width={250} height={100}/>
-    <button onClick={() => router.push("/ask")} className="  text-cyan-400 ">คลิกที่นี้</button>
+    <img src="5.png" alt=""width={250} height={100}  />
+    <button onClick={() => router.push("/information")} className="  text-cyan-400 ">คลิกที่นี้</button>
     </div>
 
   </div>
