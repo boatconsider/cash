@@ -37,7 +37,7 @@ export default function information() {
         });
       } else {
         MySwal.fire({
-          title: <strong>Login failed.</strong>,
+          title: <strong>{result.message}</strong>,
           icon: "error",
         });
       }
@@ -55,44 +55,9 @@ export default function information() {
       </div>
       <div className="flex justify-center items-center mt-5">
         <div className="flex items-center w-[650px] h-auto p-3 bg-white flex-col rounded-lg">
-          <div>
-            <img src="1.png" alt="" width={150} height={100} />
-          </div>
-          <h1 className="text-2xl font-medium">สอบถามเพิ่มเติม</h1>
-          <div className="flex flex-col items-center mt-[1rem] ">
-            <h1>ชื่อผู้แจ้งปัญหา</h1>
-            <input className="p-1  bg-[#fff] border-2 border-cyan-400  outline-amber-400 rounded-lg" onChange={(e) => setName(e.target.value)} value={name} />
-          </div>
-          <div className="flex flex-col items-center mt-[1rem] ">
-            <h1>รหัส PS, MAS, VANSell</h1>
-            <input className="p-1  bg-[#fff] border-2 border-cyan-400  outline-amber-400 rounded-lg" onChange={(e) => setPassword(e.target.value)} value={password} />
-          </div>
-          <div className="flex flex-col items-center mt-[1rem] ">
-            <h1>บอกที่มาของปัญหา</h1>
-            <input className="p-8 bg-[#fff] border-2 border-cyan-400  outline-none rounded-lg" onChange={(e) => setProblem(e.target.value)} value={problem} />
-          </div>
-          <div className="flex flex-col items-center mt-[1rem]  ">
-            <h1>อัปโหลดรูปภาพ</h1>
-            <div class="flex items-center justify-center w-full">
-              <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-20 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-                <div class="flex flex-col items-center justify-center pt-2 pb-6">
-                  <svg class="w-2 h-2 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
-                  </svg>
-                  <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> </p>
-                  <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-                </div>
-                <input id="dropzone-file" onChange={(e) => setImg(URL.createObjectURL(e.target.files[0]))} type="file" class="hidden" />
-              </label>
-              
-            </div>
-            {img && (
-              <img src={img} alt="Preview" className="mt-2 w-[150px] h-[150px]" />
-            )}
-             <button className='bg-cyan-400 text-[#fff] hover-bg-amber-400 hover-text-[#fff] p-2 mt-2 rounded-md flex items-center outline-none text-sm' onClick={handleSubmission}>ยืนยัน</button> 
-          </div>
-         
-        </div>
+     
+      </div>
+
       </div>
       <Footer />
     </div>

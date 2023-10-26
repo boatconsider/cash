@@ -17,7 +17,13 @@ export default function pdcdc() {
   const [img, setImg] = useState(""); 
 
   const handleSubmission = () => {
-  
+    if (!name || !password || !problem || !img) {
+      MySwal.fire({
+        title: <strong><h1>กรุณากรอกข้อมูลให้ครบ</h1></strong>,
+        icon: "error",
+      });
+      return;
+    }
     axios.post('https://node-api-u9ix.onrender.com/rsmpdcdc', {
       name: name,
       passwordsell: password,
@@ -37,7 +43,7 @@ export default function pdcdc() {
         });
       } else {
         MySwal.fire({
-          title: <strong>Login failed.</strong>,
+          title: <strong>{result.message}</strong>,
           icon: "error",
         });
       }

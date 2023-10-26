@@ -15,7 +15,13 @@ export default function van() {
   const [img, setImg] = useState(""); 
 
   const handleSubmission = () => {
-  
+    if (!name || !password || !problem || !img) {
+      MySwal.fire({
+        title: <strong><h1>กรุณากรอกข้อมูลให้ครบ</h1></strong>,
+        icon: "error",
+      });
+      return;
+    }
     axios.post('https://node-api-u9ix.onrender.com/rsmvan', {
       name: name,
       passwordsell: password,
@@ -35,7 +41,7 @@ export default function van() {
         });
       } else {
         MySwal.fire({
-          title: <strong>Login failed.</strong>,
+          title: <strong>{result.message}</strong>,
           icon: "error",
         });
       }

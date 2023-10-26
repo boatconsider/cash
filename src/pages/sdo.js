@@ -23,7 +23,10 @@ export default function sdo() {
 
   const handleSubmission = () => {
     if (!name || !password || !problem || !img) {
-      alert('กรุณากรอกข้อมูลให้ครบถ้วน');
+      MySwal.fire({
+        title: <strong><h1>กรุณากรอกข้อมูลให้ครบ</h1></strong>,
+        icon: "error",
+      });
       return;
     }
     axios.post('https://node-api-u9ix.onrender.com/rsmsdo', {
@@ -45,7 +48,7 @@ export default function sdo() {
         });
       } else {
         MySwal.fire({
-          title: <strong>Login failed.</strong>,
+          title: <strong>{result.message}</strong>,
           icon: "error",
         });
       }
