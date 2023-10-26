@@ -98,7 +98,7 @@ export default function sdo() {
               
             </div>
             {img && (
-              <img src={img} alt="Preview" className="mt-2 w-[150px] h-[150px]" />
+              <img src={img} alt="Preview" className="mt-2 w-[200px] h-[400px]" />
             )}
              <button className='bg-cyan-400 text-[#fff] hover-bg-amber-400 hover-text-[#fff] p-2 mt-2 rounded-md flex items-center outline-none text-sm' onClick={handleSubmission}>ยืนยัน</button> 
           </div>

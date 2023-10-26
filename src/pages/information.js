@@ -10,42 +10,6 @@ import { useRouter } from "next/router";
 
 export default function information() {
   const router = useRouter();
-  const MySwal = withReactContent(Swal);
-  const [name, setName] = useState(""); 
-  const [password, setPassword] = useState(""); 
-  const [problem, setProblem] = useState(""); 
-  const [img, setImg] = useState(""); 
-
-  const handleSubmission = () => {
-  
-    axios.post('https://node-api-u9ix.onrender.com/rsmask', {
-      name: name,
-      passwordsell: password,
-      problem: problem,
-      img: img
-    })
-    .then((response) => {
-      const result = response.data;
-      console.log(result);
-
-      if (result.status === "ok") {
-        MySwal.fire({
-          html: <i>{result.message}</i>,
-          icon: "success",
-        }).then(() => {
-          router.push("/");
-        });
-      } else {
-        MySwal.fire({
-          title: <strong>{result.message}</strong>,
-          icon: "error",
-        });
-      }
-    })
-    .catch((error) => {
-      console.log("Error:", error.message);
-    });
-  }
 
   return (
     <div className="h-full bg-slate-200 min-h-[400px]">
@@ -55,7 +19,29 @@ export default function information() {
       </div>
       <div className="flex justify-center items-center mt-5">
         <div className="flex items-center w-[650px] h-auto p-3 bg-white flex-col rounded-lg">
-     
+        <div className='text-center'>
+          <h1>เริ่มจากเลือกบริษัทที่เราจะแจ้ง
+          </h1>
+          <img src='สเต็บ1.png' alt=''/>
+          <h1>หรือเลือกจากด้านล่างก็ได้
+          </h1>
+          <img src='1.1.png'alt=''/>
+          <h1>หลังจากเราคลิกเลือกบริษัทจะขึ้น form ให้กรอกดังนี้
+          </h1>
+            <img src='เลือกได้แล้ว.png 'alt=''/>
+            <h1>กรอกformให้ครบดังตัวอย่าง
+          </h1>
+          <img src='form.png' alt=''/>
+          <h1>จากนั้นกดปุ่มยืนยัน
+          </h1>
+          <img src='confirm.png' alt=''/>
+          <h1>ระบบจะแสดง popupดังนี้ถ้าระบบไม่ผิดพลาด
+          </h1>
+          <img src='fin.png' alt=''/>
+          <h1>กรณีกรอกข้อมูลไม่ครบ
+          </h1>
+          <img src='filed.png' alt=''/>
+        </div>
       </div>
 
       </div>

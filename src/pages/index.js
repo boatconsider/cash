@@ -29,6 +29,7 @@ export default function Home() {
 <h3> -บอกที่มาของปัญหาคร่าวๆ</h3>
 <h3>3. แล้วกด Submit แล้วรอทางทีมไอทีรับเรื่องและทำการแก้ไข</h3>
 <h3> 4. หลังจากนั้นรอทางทีม IT Support ดำเนินงาน</h3>
+<button onClick={() => router.push("/information")} className="  text-cyan-400 ">คลิกดูรายละเอียดการใช้งานเพิ่มเติม</button>
       </div>
 
       </div>
