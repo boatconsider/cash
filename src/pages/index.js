@@ -12,10 +12,10 @@ export default function Home() {
       <Headder />
      <div className="flex justify-center items-center mt-5">
       <div className=" flex justify-center items-center w-[600px] h-[500px] bg-white flex-col rounded-lg">
-      <div className="text-xl flex  flex-col justify-center items-center flex-wrap">
+      <div className="text-xl flex  flex-col justify-center items-center flex-wrap max-[500px]:text-base">
       <h1 className=" font-semibold text-2xl">คู่มือวิธีการใช้งานแจ้งปัญหา</h1>
         <h3>1. คลิกบริษัทที่ท่านทำงานดังนี้ SDO  PDC/DC หรือ VANSEll</h3>
-        <h3>2. จะมีฟอร์มแก้ปัญหาสิ่งที่ต้องกรอกมีดังนี้</h3>
+        <h3>2. จะมีฟอร์มแก้ปัญหาสิ่งที่ต้องกรอกมีดังนี้ </h3>
 
         <h3> -ชื่อผู้แจ้งปัญหา </h3>
 
@@ -24,10 +24,8 @@ export default function Home() {
         <h3> -บอกที่มาของปัญหาคร่าวๆ</h3>
     
 
-        <h3>*ไม่ว่าจะเป็นการย้าย
-แฟ้มหรือปัญหาอื่นๆก็กรอกมาทั้งหมด</h3>
 <h3> -บอกที่มาของปัญหาคร่าวๆ</h3>
-<h3>3. แล้วกด Submit แล้วรอทางทีมไอทีรับเรื่องและทำการแก้ไข</h3>
+<h3>3. แล้วกด Submit แล้วรอทางทีมไอทีทำการแก้ไข</h3>
 <h3> 4. หลังจากนั้นรอทางทีม IT Support ดำเนินงาน</h3>
 <button onClick={() => router.push("/information")} className="  text-cyan-400 ">คลิกดูรายละเอียดการใช้งานเพิ่มเติม</button>
       </div>

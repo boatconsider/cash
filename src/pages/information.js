@@ -18,11 +18,14 @@ export default function information() {
         <img src="itsupport.png" alt="" width={300} height={300} />
       </div>
       <div className="flex justify-center items-center mt-5">
-        <div className="flex items-center w-[650px] h-auto p-3 bg-white flex-col rounded-lg">
-        <div className='text-center'>
+        <div className="flex items-center w-[650px] h-auto p-3  bg-white flex-col rounded-lg">
+        <div className='text-center text-xl '>
           <h1>เริ่มจากเลือกบริษัทที่เราจะแจ้ง
           </h1>
           <img src='สเต็บ1.png' alt=''/>
+          <h1>กรณีเข้าในโทรสับหรือแทบเล็ต
+          </h1>
+          <img src='mobile.jpg'alt=''/>
           <h1>หรือเลือกจากด้านล่างก็ได้
           </h1>
           <img src='1.1.png'alt=''/>
