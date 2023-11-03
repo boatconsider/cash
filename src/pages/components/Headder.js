@@ -45,7 +45,7 @@ export default function Headder() {
                 onClick={() => router.push("/sdo")}
               >
               
-              แจ้งปัญหา SDO
+              แจ้งย้ายแฟ้ม
               </button>
               <button
                 className="bg-white text-[#333] hover:bg-[#333] hover:text-[#fff] p-1 mr-2 rounded-md flex items-center outline-none text-sm"
