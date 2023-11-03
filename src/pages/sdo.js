@@ -18,7 +18,7 @@ export default function pdcdc() {
   const [cardcode, setCardcode] = useState(""); 
   const [cardname, setCardname] = useState(""); 
   const handleSubmission = () => {
-    if (!name || !password || !problem || !img) {
+    if (!name || !password || !problem || !cardcode || !img || !cardname) {
       MySwal.fire({
         title: <strong><h1>กรุณากรอกข้อมูลให้ครบ</h1></strong>,
         icon: "error",
@@ -96,15 +96,15 @@ export default function pdcdc() {
           <div className="flex flex-col items-center mt-[1rem] ">
             <h1>CardName
 </h1>
-            <input className="p-8 bg-[#fff] border-2 border-cyan-400  outline-none rounded-lg" onChange={(e) => setCardname(e.target.value)} value={cardname} />
+            <input className="p-1 bg-[#fff] border-2 border-cyan-400  outline-none rounded-lg" onChange={(e) => setCardname(e.target.value)} value={cardname} />
           </div>
           <div className="flex flex-col items-center mt-[1rem] ">
             <h1>แฟ้มเก่า</h1>
-            <input className="p-8 bg-[#fff] border-2 border-cyan-400  outline-none rounded-lg" onChange={(e) => setImg(e.target.value)} value={img} />
+            <input className="p-1 bg-[#fff] border-2 border-cyan-400  outline-none rounded-lg" onChange={(e) => setImg(e.target.value)} value={img} />
           </div>
           <div className="flex flex-col items-center mt-[1rem] ">
             <h1>แฟ้มที่ต้องการย้าย</h1>
-            <input className="p-8 bg-[#fff] border-2 border-cyan-400  outline-none rounded-lg" onChange={(e) => setPassword(e.target.value)} value={password} />
+            <input className="p-1 bg-[#fff] border-2 border-cyan-400  outline-none rounded-lg" onChange={(e) => setPassword(e.target.value)} value={password} />
           </div>
           <div className="flex flex-col items-center mt-[1rem] ">
             <h1>หมายเหตุเพิ่มเติม</h1>
