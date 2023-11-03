@@ -12,45 +12,76 @@ export default function pdcdc() {
   const router = useRouter();
   const MySwal = withReactContent(Swal);
   const [name, setName] = useState(""); 
-  const [password, setPassword] = useState(""); 
+
   const [problem, setProblem] = useState(""); 
   const [img, setImg] = useState(""); 
-
+  const [cardcode, setCardcode] = useState(""); 
+  const [cardname, setCardname] = useState(""); 
   const handleSubmission = () => {
-    if (!name || !password || !problem || !img) {
+    if (!name  || !problem || !cardcode || !cardname) {
       MySwal.fire({
         title: <strong><h1>กรุณากรอกข้อมูลให้ครบ</h1></strong>,
         icon: "error",
       });
       return;
     }
-    axios.post('https://node-api-u9ix.onrender.com/rsmpdcdc', {
-      name: name,
-      passwordsell: password,
-      problem: problem,
-      img: img
-    })
-    .then((response) => {
-      const result = response.data;
-      console.log(result);
-
-      if (result.status === "ok") {
-        MySwal.fire({
-          html: <i>{result.message}</i>,
-          icon: "success",
-        }).then(() => {
-          router.push("/");
-        });
-      } else {
-        MySwal.fire({
-          title: <strong>{result.message}</strong>,
-          icon: "error",
-        });
+  
+ 
+    const loadingSwal = Swal.fire({
+      title: 'กำลังโหลด...',
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      },
+      imageUrl: 'https://www.mindphp.com/images/articles/202001/IT_Support.jpg',
+      imageWidth: 300,
+      imageHeight: 200,
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      onBeforeOpen: () => {
+        Swal.showLoading();
       }
-    })
-    .catch((error) => {
-      console.log("Error:", error.message);
     });
+        
+       
+       
+
+    
+  
+    axios.post('https://node-api-u9ix.onrender.com/rsmpdel', {
+      "passsell": name,
+      "cardcode": cardcode,
+      "cardname": cardname,
+      "problem": problem
+    })
+      .then((response) => {
+        const result = response.data;
+        console.log(result);
+  
+        // ปิด Loading Indicator
+        loadingSwal.close();
+  
+        if (result.status === "ok") {
+          MySwal.fire({
+            html: <i>{result.message}</i>,
+            icon: "success",
+          }).then(() => {
+            router.push("/");
+          });
+        } else {
+          MySwal.fire({
+            title: <strong>{result.message}</strong>,
+            icon: "error",
+          });
+        }
+      })
+      .catch((error) => {
+
+        loadingSwal.close();
+        console.log("Error:", error.message);
+      });
   }
 
   return (
@@ -64,39 +95,26 @@ export default function pdcdc() {
           <div>
             <img src="1.png" alt="" width={150} height={100} />
           </div>
-          <h1 className="text-2xl font-medium">แจ้งปัญหา pdcdc</h1>
+          <h1 className="text-2xl font-medium">แจ้งตัดร้าน</h1>
           <div className="flex flex-col items-center mt-[1rem] ">
-            <h1>ชื่อผู้แจ้งปัญหา</h1>
+            <h1>SlsperID</h1>
             <input className="p-1  bg-[#fff] border-2 border-cyan-400  outline-amber-400 rounded-lg" onChange={(e) => setName(e.target.value)} value={name} />
           </div>
           <div className="flex flex-col items-center mt-[1rem] ">
-            <h1>รหัส PS, MAS, VANSell</h1>
-            <input className="p-1  bg-[#fff] border-2 border-cyan-400  outline-amber-400 rounded-lg" onChange={(e) => setPassword(e.target.value)} value={password} />
+            <h1>CardCode</h1>
+            <input className="p-1  bg-[#fff] border-2 border-cyan-400  outline-amber-400 rounded-lg" onChange={(e) => setCardcode(e.target.value)} value={cardcode} />
+          </div>
+          <div className="flex flex-col items-center mt-[1rem] ">
+            <h1>CardName</h1>
+            <input className="p-1  bg-[#fff] border-2 border-cyan-400  outline-amber-400 rounded-lg" onChange={(e) => setCardname(e.target.value)} value={cardname} />
           </div>
           <div className="flex flex-col items-center mt-[1rem] ">
             <h1>บอกที่มาของปัญหา</h1>
             <input className="p-8 bg-[#fff] border-2 border-cyan-400  outline-none rounded-lg" onChange={(e) => setProblem(e.target.value)} value={problem} />
           </div>
-          <div className="flex flex-col items-center mt-[1rem]  ">
-            <h1>อัปโหลดรูปภาพ</h1>
-            <div class="flex items-center justify-center w-full">
-              <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-20 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-                <div class="flex flex-col items-center justify-center pt-2 pb-6">
-                  <svg class="w-2 h-2 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
-                  </svg>
-                  <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> </p>
-                  <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-                </div>
-                <input id="dropzone-file" onChange={(e) => setImg(URL.createObjectURL(e.target.files[0]))} type="file" class="hidden" />
-              </label>
-              
-            </div>
-            {img && (
-               <img src={img} alt="Preview" className="mt-2 w-[200px] h-[400px]" />
-            )}
+       
              <button className='bg-cyan-400 text-[#fff] hover-bg-amber-400 hover-text-[#fff] p-2 mt-2 rounded-md flex items-center outline-none text-sm' onClick={handleSubmission}>ยืนยัน</button> 
-          </div>
+          
          
         </div>
       </div>

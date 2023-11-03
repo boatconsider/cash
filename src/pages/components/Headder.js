@@ -45,21 +45,21 @@ export default function Headder() {
                 onClick={() => router.push("/sdo")}
               >
               
-              แจ้งย้ายแฟ้ม
+              แจ้งย้ายแฟ้มหรือย้ายร้านให้อีกsell
               </button>
               <button
                 className="bg-white text-[#333] hover:bg-[#333] hover:text-[#fff] p-1 mr-2 rounded-md flex items-center outline-none text-sm"
                 onClick={() => router.push("/pdcdc")}
               >
              
-             แจ้งปัญหา PDC/DC
+             แจ้งตัดร้าน
               </button>
               <button
                 className="bg-white text-[#333] hover:bg-[#333] hover:text-[#fff] p-1 mr-2 rounded-md flex items-center outline-none text-sm"
                 onClick={() => router.push("/van")}
               >
 
-              แจ้งปัญหา VANSEll
+              แจ้งเปลี่ยนเลขที่เสียภาษีหรือแก้ชื่อร้าน
               </button>
               <button
                 className="bg-white text-[#333] hover:bg-[#333] hover:text-[#fff] p-1 mr-2 rounded-md flex items-center outline-none text-sm"

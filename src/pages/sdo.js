@@ -26,14 +26,29 @@ export default function pdcdc() {
       return;
     }
   
-    // เริ่มแสดง Loading Indicator ที่นี่
-    const loadingSwal = MySwal.fire({
-      title: 'loading....',
-      allowOutsideClick: false, 
+ 
+    const loadingSwal = Swal.fire({
+      title: 'กำลังโหลด...',
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      },
+      imageUrl: 'https://www.mindphp.com/images/articles/202001/IT_Support.jpg',
+      imageWidth: 300,
+      imageHeight: 200,
+      allowOutsideClick: false,
+      showConfirmButton: false,
       onBeforeOpen: () => {
         Swal.showLoading();
       }
     });
+        
+       
+       
+
+    
   
     axios.post('https://node-api-u9ix.onrender.com/rsmpfam', {
       "passsell": name,
@@ -96,19 +111,19 @@ export default function pdcdc() {
           <div className="flex flex-col items-center mt-[1rem] ">
             <h1>CardName
 </h1>
-            <input className="p-1 bg-[#fff] border-2 border-cyan-400  outline-none rounded-lg" onChange={(e) => setCardname(e.target.value)} value={cardname} />
+            <input className="p-1 bg-[#fff] border-2 border-cyan-400  outline-amber-400 rounded-lg " onChange={(e) => setCardname(e.target.value)} value={cardname} />
           </div>
           <div className="flex flex-col items-center mt-[1rem] ">
             <h1>แฟ้มเก่า</h1>
-            <input className="p-1 bg-[#fff] border-2 border-cyan-400  outline-none rounded-lg" onChange={(e) => setImg(e.target.value)} value={img} />
+            <input className="p-1 bg-[#fff] border-2 border-cyan-400  outline-amber-400 rounded-lg" onChange={(e) => setImg(e.target.value)} value={img} />
           </div>
           <div className="flex flex-col items-center mt-[1rem] ">
             <h1>แฟ้มที่ต้องการย้าย</h1>
-            <input className="p-1 bg-[#fff] border-2 border-cyan-400  outline-none rounded-lg" onChange={(e) => setPassword(e.target.value)} value={password} />
+            <input className="p-1 bg-[#fff] border-2 border-cyan-400  outline-amber-400 rounded-lg" onChange={(e) => setPassword(e.target.value)} value={password} />
           </div>
           <div className="flex flex-col items-center mt-[1rem] ">
             <h1>หมายเหตุเพิ่มเติม</h1>
-            <input className="p-8 bg-[#fff] border-2 border-cyan-400  outline-none rounded-lg" onChange={(e) => setProblem(e.target.value)} value={problem} />
+            <input className="p-8 bg-[#fff] border-2 border-cyan-400  outline-amber-400 rounded-lg" onChange={(e) => setProblem(e.target.value)} value={problem} />
           </div>
              <button className='bg-cyan-400 text-[#fff] hover-bg-amber-400 hover-text-[#fff] p-2 mt-2 rounded-md flex items-center outline-none text-sm' onClick={handleSubmission}>ยืนยัน</button> 
       
