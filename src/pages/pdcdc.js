@@ -18,7 +18,7 @@ export default function pdcdc() {
   const [cardcode, setCardcode] = useState(""); 
   const [cardname, setCardname] = useState(""); 
   const handleSubmission = () => {
-    if (!name  || !problem || !cardcode || !cardname) {
+    if (!name || !problem || !cardcode || !cardname) {
       MySwal.fire({
         title: <strong><h1>กรุณากรอกข้อมูลให้ครบ</h1></strong>,
         icon: "error",
@@ -50,7 +50,7 @@ export default function pdcdc() {
 
     
   
-    axios.post('https://node-api-u9ix.onrender.com/rsmpdel', {
+    axios.post('https://node-api-u9ix.onrender.com/rsmdel', {
       "passsell": name,
       "cardcode": cardcode,
       "cardname": cardname,

@@ -50,7 +50,7 @@ export default function pdcdc() {
 
     
   
-    axios.post('https://node-api-u9ix.onrender.com/rsmpfam', {
+    axios.post('https://node-api-u9ix.onrender.com/rsmfam', {
       "passsell": name,
       "cardcode": cardcode,
       "cardname": cardname,

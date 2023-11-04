@@ -36,21 +36,21 @@ export default function Home() {
      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5">
   <div class="bg-white rounded-lg p-4 w-[300px] h-[300px]">
     <div className="flex justify-center items-center flex-col">
-    <img src="1.png" alt="" width={250} height={100}/>
+    <img src="move.png" alt="" width={250} height={100}/>
     <button  onClick={() => router.push("/sdo")} className="  text-cyan-400 ">คลิกที่นี้</button>
     </div>
   
   </div>
   <div class="bg-white rounded-lg p-4 w-[300px] h-[300px]">
   <div className="flex justify-center items-center flex-col">
-    <img src="2.png" alt=""  width={250} height={100}/>
+    <img src="cut.png" alt=""  width={250} height={100}/>
     <button onClick={() => router.push("/pdcdc")} className="  text-cyan-400 ">คลิกที่นี้</button>
     </div>
   
   </div>
   <div class="bg-white rounded-lg p-4 w-[300px] h-[300px]">
   <div className="flex justify-center items-center flex-col">
-    <img src="3.png" alt=""  width={250} height={100}/>
+    <img src="edit.png" alt=""  width={250} height={100}/>
     <button onClick={() => router.push("/van")}  className="  text-cyan-400 ">คลิกที่นี้</button>
     </div>
 

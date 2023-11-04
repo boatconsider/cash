@@ -85,19 +85,19 @@ export default function Headder() {
             className="mt-3 hover:text-[#06b6d4] flex items-center"
             onClick={() => router.push("/sdo")}
           >
-      แจ้งปัญหา SDO
+    แจ้งย้ายแฟ้มหรือย้ายร้านให้อีกsell
           </button>
           <button
             className="mt-3 hover:text-[#06b6d4] flex items-center"
             onClick={() => router.push("/pdcdc")}
           >
-                    แจ้งปัญหา PDC/DC
+                           แจ้งตัดร้าน
           </button>
           <button
             className="mt-3 hover:text-[#06b6d4] flex items-center"
             onClick={() => router.push("/van")}
           >
-         แจ้งปัญหา VANSEll
+                  แจ้งเปลี่ยนเลขที่เสียภาษีหรือแก้ชื่อร้าน
           </button>
           <button
                 className="mt-3 hover:text-[#06b6d4] flex items-center"
