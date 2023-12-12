@@ -8,7 +8,7 @@ import withReactContent from "sweetalert2-react-content";
 
 import { useRouter } from "next/router";
 
-export default function pdcdc() {
+export default function cut() {
   const router = useRouter();
   const MySwal = withReactContent(Swal);
   const [name, setName] = useState(""); 
