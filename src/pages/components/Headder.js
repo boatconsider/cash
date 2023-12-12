@@ -42,21 +42,21 @@ export default function Headder() {
               </button>
               <button
                 className="bg-white text-[#333] hover:bg-[#333] hover:text-[#fff] p-1 mr-2 rounded-md flex items-center outline-none text-sm"
-                onClick={() => router.push("/sdo")}
+                onClick={() => router.push("/move")}
               >
               
               แจ้งย้ายแฟ้มหรือย้ายร้านให้อีกsell
               </button>
               <button
                 className="bg-white text-[#333] hover:bg-[#333] hover:text-[#fff] p-1 mr-2 rounded-md flex items-center outline-none text-sm"
-                onClick={() => router.push("/pdcdc")}
+                onClick={() => router.push("/cut")}
               >
              
              แจ้งตัดร้าน
               </button>
               <button
                 className="bg-white text-[#333] hover:bg-[#333] hover:text-[#fff] p-1 mr-2 rounded-md flex items-center outline-none text-sm"
-                onClick={() => router.push("/van")}
+                onClick={() => router.push("/edit")}
               >
 
               แจ้งเปลี่ยนเลขที่เสียภาษีหรือแก้ชื่อร้าน
@@ -83,19 +83,19 @@ export default function Headder() {
           </button>
           <button
             className="mt-3 hover:text-[#06b6d4] flex items-center"
-            onClick={() => router.push("/sdo")}
+            onClick={() => router.push("/move")}
           >
     แจ้งย้ายแฟ้มหรือย้ายร้านให้อีกsell
           </button>
           <button
             className="mt-3 hover:text-[#06b6d4] flex items-center"
-            onClick={() => router.push("/pdcdc")}
+            onClick={() => router.push("/cut")}
           >
                            แจ้งตัดร้าน
           </button>
           <button
             className="mt-3 hover:text-[#06b6d4] flex items-center"
-            onClick={() => router.push("/van")}
+            onClick={() => router.push("/edit")}
           >
                   แจ้งเปลี่ยนเลขที่เสียภาษีหรือแก้ชื่อร้าน
           </button>
