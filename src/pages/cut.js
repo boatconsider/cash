@@ -35,16 +35,14 @@ export default function cut() {
       hideClass: {
         popup: 'animate__animated animate__fadeOutUp'
       },
-      imageUrl: 'https://www.mindphp.com/images/articles/202001/IT_Support.jpg',
-      imageWidth: 300,
-      imageHeight: 200,
+      html: '<div style="border-radius: 100%; overflow: hidden;"><img src="https://www.mindphp.com/images/articles/202001/IT_Support.jpg" style="width: 100%; height: 100%; border-radius: 10px;"></div>',
       allowOutsideClick: false,
       showConfirmButton: false,
       onBeforeOpen: () => {
         Swal.showLoading();
       }
     });
-        
+    
        
        
 
