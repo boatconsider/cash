@@ -1,73 +1,96 @@
-import Footer from "./components/Footer";
-import Headder from "./components/Headder";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { useState } from 'react';
+import Headder from "./components/Headder"
+import Footer from "./components/Footer"
+import axios from 'axios';
+
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 import { useRouter } from "next/router";
+
 export default function Home() {
   const router = useRouter();
+  const MySwal = withReactContent(Swal);
+  const [list, setList] = useState(""); 
 
-  return (
-    <div className="h-full bg-slate-200  min[400px]:h-auto">
-      <Headder />
-     <div className="flex justify-center items-center mt-5">
-      <div className=" flex justify-center items-center w-[600px] h-[500px] bg-white flex-col rounded-lg">
-      <div className="text-xl flex  flex-col justify-center items-center flex-wrap max-[500px]:text-base">
-      <h1 className=" font-semibold text-2xl">คู่มือวิธีการใช้งานแจ้งปัญหา</h1>
-        <h3>1. คลิกบริษัทที่ท่านทำงานดังนี้ SDO  PDC/DC หรือ VANSEll</h3>
-        <h3>2. จะมีฟอร์มแก้ปัญหาสิ่งที่ต้องกรอกมีดังนี้ </h3>
+  const [cash, setCash] = useState(""); 
+  const [img, setImg] = useState(""); 
 
-        <h3> -ชื่อผู้แจ้งปัญหา </h3>
-
-        <h3>-รหัส PS,MAS,VANSEll</h3>
-
-        <h3> -บอกที่มาของปัญหาคร่าวๆ</h3>
+  const handleSubmission = () => {
+    if (!list || !cash ) {
+      MySwal.fire({
+        title: <strong><h1>กรุณากรอกข้อมูลให้ครบ</h1></strong>,
+        icon: "error",
+      });
+      return;
+    }
+  
+ 
     
 
-<h3> -บอกที่มาของปัญหาคร่าวๆ</h3>
-<h3>3. แล้วกด Submit แล้วรอทางทีมไอทีทำการแก้ไข</h3>
-<h3> 4. หลังจากนั้นรอทางทีม IT Support ดำเนินงาน</h3>
-<button onClick={() => router.push("/information")} className="  text-cyan-400 ">คลิกดูรายละเอียดการใช้งานเพิ่มเติม</button>
-      </div>
-
-      </div>
-     </div> 
-     <div className="flex justify-center items-center mt-[1rem] flex-warp">
-     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5">
-  <div class="bg-white rounded-lg p-4 w-[300px] h-[300px]">
-    <div className="flex justify-center items-center flex-col">
-    <img src="move.png" alt="" width={250} height={100}/>
-    <button  onClick={() => router.push("/sdo")} className="  text-cyan-400 ">คลิกที่นี้</button>
-    </div>
+    
   
-  </div>
-  <div class="bg-white rounded-lg p-4 w-[300px] h-[300px]">
-  <div className="flex justify-center items-center flex-col">
-    <img src="cut.png" alt=""  width={250} height={100}/>
-    <button onClick={() => router.push("/pdcdc")} className="  text-cyan-400 ">คลิกที่นี้</button>
-    </div>
+    axios.post('https://node-api-u9ix.onrender.com/cash', {
+      "list": list,
+      "cash": cash,
+      
+    })
+      .then((response) => {
+        const result = response.data;
+        console.log(result);
   
-  </div>
-  <div class="bg-white rounded-lg p-4 w-[300px] h-[300px]">
-  <div className="flex justify-center items-center flex-col">
-    <img src="edit.png" alt=""  width={250} height={100}/>
-    <button onClick={() => router.push("/van")}  className="  text-cyan-400 ">คลิกที่นี้</button>
-    </div>
+        // ปิด Loading Indicator
+        loadingSwal.close();
+  
+        if (result.status === "ok") {
+          MySwal.fire({
+            html: <i>{result.message}</i>,
+            icon: "success",
+          }).then(() => {
+            router.push("/");
+          });
+        } else {
+          MySwal.fire({
+            title: <strong>{result.message}</strong>,
+            icon: "error",
+          });
+        }
+      })
+      .catch((error) => {
 
-  </div>
-  <div class="bg-white rounded-lg p-4 w-[300px] h-[300px]">
-  <div className="flex justify-center items-center flex-col">
-    <img src="5.png" alt=""width={250} height={100}  />
-    <button onClick={() => router.push("/information")} className="  text-cyan-400 ">คลิกที่นี้</button>
-    </div>
+     
+        console.log("Error:", error.message);
+      });
+  }
 
-  </div>
-</div>
-
-</div>
-
-        <Footer  />
+  return (
+    <div className="h-full bg-slate-200 min-h-[400px]">
+      <Headder />
+      <div className="flex justify-center items-center mt-5 ml-5">
+        <img src="itsupport.png" alt="" width={300} height={300} />
       </div>
-
+      <div className="flex justify-center items-center mt-5">
+        <div className="flex items-center w-[650px] h-auto p-3 bg-white flex-col rounded-lg">
+          <div>
+            <img src="1.png" alt="" width={150} height={100} />
+          </div>
+          <h1 className="text-2xl font-medium">รายรับรายจ่าย</h1>
+          <div className="flex flex-col items-center mt-[1rem] ">
+            <h1>รายการ</h1>
+            <input className="p-1  bg-[#fff] border-2 border-cyan-400  outline-amber-400 rounded-lg" onChange={(e) => setList(e.target.value)} value={list} />
+          </div>
+          <div className="flex flex-col items-center mt-[1rem] ">
+            <h1>จำนวนเงิน</h1>
+            <input className="p-1  bg-[#fff] border-2 border-cyan-400  outline-amber-400 rounded-lg" onChange={(e) => setCash(e.target.value)} value={cash} />
+          </div>
+     
+       
+             <button className='bg-cyan-400 text-[#fff] hover-bg-amber-400 hover-text-[#fff] p-2 mt-2 rounded-md flex items-center outline-none text-sm' onClick={handleSubmission}>ยืนยัน</button> 
+          
+         
+        </div>
+      </div>
+      <Footer />
+    </div>
   );
 }
