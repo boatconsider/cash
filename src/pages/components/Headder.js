@@ -48,13 +48,12 @@ export default function Headder() {
         </div>
       </div>
       {isMobileNavOpen && (
-        <div className="md:hidden bg-[#fff] w-full h-[200px] flex flex-col justify-center items-center text-center">
+        <div className="md:hidden bg-[#fff] w-full h-[100px] flex flex-col justify-center items-center text-center">
         
           <button
             className="mt-3 hover:text-[#06b6d4] flex items-center"
-            onClick={() => router.push("/move")}
-          >
-   ย้ายแฟ้มย้ายร้านให้เซลล์อีกคน
+            onClick={() => router.push("/history")}
+          > ประวัติธุรกรรม
           </button>
          
 
