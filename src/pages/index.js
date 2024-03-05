@@ -11,7 +11,7 @@ export default function Home() {
   const MySwal = withReactContent(Swal);
   const [list, setList] = useState("");
   const [cash, setCash] = useState("");
-  const [totalCash, setTotalCash] = useState(0);
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     // Fetch total cash when component mounts
@@ -19,7 +19,7 @@ export default function Home() {
       .then((response) => {
         const result = response.data;
         if (result.status === "ok") {
-          setTotalCash(result.total_cash);
+          setTotal(result.total);
         } else {
           // Handle error
         }
@@ -87,7 +87,7 @@ export default function Home() {
           </div>
           <button className='bg-cyan-400 text-[#fff] hover-bg-amber-400 hover-text-[#fff] p-2 mt-2 rounded-md flex items-center outline-none text-sm' onClick={handleSubmission}>ยืนยัน</button>
           <div className="flex flex-col items-center mt-[1rem] ">
-            <h1>เงินคงเหลือ: {totalCash} บาท</h1>
+            <h1>เงินคงเหลือ: {total} บาท</h1>
           </div>
         </div>
       </div>
