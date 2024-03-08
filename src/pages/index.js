@@ -12,7 +12,11 @@ export default function Home() {
   const [list, setList] = useState("");
   const [cash, setCash] = useState("");
   const [total, setTotal] = useState(0);
-
+  const handleDropdownChange = (e) => {
+    const selectedValue = e.target.value;
+  
+    setCash(selectedValue);
+  };
   useEffect(() => {
     // Fetch total cash when component mounts
     axios.get('https://node-api-u9ix.onrender.com/cashtotal')
@@ -27,7 +31,7 @@ export default function Home() {
       .catch((error) => {
         // Handle error
       });
-  }, []); // Empty dependency array to ensure useEffect runs only once
+  }, [total]); 
 
   const handleSubmission = () => {
     if (!list || !cash) {
@@ -81,10 +85,15 @@ export default function Home() {
             <h1>รายการ</h1>
             <input className="p-1  bg-[#fff] border-2 border-cyan-400  outline-amber-400 rounded-lg" onChange={(e) => setList(e.target.value)} value={list} />
           </div>
-          <div className="flex flex-col items-center mt-[1rem] ">
-            <h1>จำนวนเงิน</h1>
-            <input className="p-1  bg-[#fff] border-2 border-cyan-400  outline-amber-400 rounded-lg" onChange={(e) => setCash(e.target.value)} value={cash} />
-          </div>
+          <div className="flex flex-col items-center mt-[0.5rem]">
+          <h1>เลือกธุรกรรม</h1>
+      <select className="p-1 bg-[#fff] border-2 border-cyan-400 outline-amber-400 rounded-lg" onChange={handleDropdownChange}>
+      <option value="" >+รายรับ</option>
+        <option value="-">-รายจ่าย</option>
+      </select>
+      <h1>จำนวนเงิน</h1>
+      <input className="p-1 bg-[#fff] border-2 border-cyan-400 outline-amber-400 rounded-lg mt-2" onChange={(e) => setCash(e.target.value)} value={cash} />
+    </div>
           <button className='bg-cyan-400 text-[#fff] hover-bg-amber-400 hover-text-[#fff] p-2 mt-2 rounded-md flex items-center outline-none text-sm' onClick={handleSubmission}>ยืนยัน</button>
           <div className="flex flex-col items-center mt-[1rem] ">
             <h1>เงินคงเหลือ: {total} บาท</h1>
